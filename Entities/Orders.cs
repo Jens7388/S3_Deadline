@@ -29,5 +29,10 @@ namespace Entities
         public virtual Employees Employee { get; set; }
         public virtual Shippers ShipViaNavigation { get; set; }
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+
+        public override string ToString()
+        {
+            return OrderId.ToString(); 
+        }
     }
 }

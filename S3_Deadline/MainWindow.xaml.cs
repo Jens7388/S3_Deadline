@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DataAccess;
+
+using S3_Deadline.ViewModels;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +24,18 @@ namespace S3_Deadline
     /// </summary>
     public partial class MainWindow: Window
     {
+        OrderViewModel orderViewModel;
+        OrderRepository repo;
+
         public MainWindow()
         {
             InitializeComponent();
+            orderViewModel = DataContext as OrderViewModel;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            orderViewModel.Initialize();
         }
     }
 }
