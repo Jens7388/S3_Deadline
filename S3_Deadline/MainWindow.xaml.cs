@@ -25,7 +25,7 @@ namespace S3_Deadline
     public partial class MainWindow: Window
     {
         CustomerViewModel customerViewModel;
-        OrderRepository repo;
+       // OrderRepository repo;
 
         public MainWindow()
         {

@@ -12,6 +12,7 @@ namespace S3_Deadline.ViewModels
     public class CustomerViewModel: ViewModelBase<Customers>
     {
         private Customers selectedCustomer;
+        private Orders selectedOrder;
 
         public CustomerViewModel()
         {
@@ -26,6 +27,15 @@ namespace S3_Deadline.ViewModels
             {
                 selectedCustomer = value;
                 OnPropertyChanged(nameof(SelectedCustomer));
+            }
+        }
+        public Orders SelectedOrder
+        {
+            get => selectedOrder;
+            set
+            {
+                selectedOrder = value;
+                OnPropertyChanged(nameof(SelectedOrder));
             }
         }
 
