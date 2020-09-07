@@ -4,21 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:S3_Deadline"
+        xmlns:ViewModels="clr-namespace:S3_Deadline.ViewModels"
         mc:Ignorable="d"
-        Title="Login" Height="200" Width="250">
+        Title="Login"
+        Height="250"
+        Width="300">
+    <Window.DataContext>
+        <ViewModels:CustomerViewModel />
+    </Window.DataContext>
     <Grid>
-        <Label Content="Brugernavn"
-               Margin="0,23,180,136"></Label>
-        <TextBox Width="100" Height="25"
-                 x:Name="textBoxUserName"
-                 Margin="125,25,25,134"></TextBox>
-        <Label Content="Adgangskode"
-               Margin="-1,80,161,71"></Label>
-        <TextBox Width="100"
-                 Height="25"
-                 x:Name="textBoxPassword"
-                 Margin="124,78,26,81"></TextBox>
-        <Button Margin="81,150,81,2" Content="Log ind"
+        <StackPanel Margin="0,0,0,86">
+            <Label Content="Brugernavn:"
+                   Width="100" />
+            <TextBox Width="100"
+                     Height="25"
+                     x:Name="textBoxUserName" />
+            <Label Content="Adgangskode:"
+                   Width="98" />
+            <TextBox Width="100"
+                     Height="25"
+                     x:Name="textBoxPassword" />
+        </StackPanel>
+
+        <Button Margin="81,150,81,2"
+                Content="Log ind"
                 x:Name="buttonLogin"
                 Click="ButtonLogin_Click"></Button>
     </Grid>
