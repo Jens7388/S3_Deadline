@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DataAccess
 {
-    public class ProductRepository: RepositoryBase<Orders>
+    public class OrderRepository: RepositoryBase<Orders>
     {
         protected const string orderDetails = "OrderDetails";
 

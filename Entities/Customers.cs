@@ -25,5 +25,6 @@ namespace Entities
 
         public virtual ICollection<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public virtual ICollection<Orders> Orders { get; set; }
+
     }
 }
