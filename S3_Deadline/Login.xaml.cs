@@ -5,6 +5,7 @@ using S3_Deadline.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,7 @@ namespace S3_Deadline
     public partial class Login: Window
     {
         CustomerViewModel customerViewModel;
+        Customers selectedCustomer;
 
         public Login()
         {
@@ -33,7 +35,7 @@ namespace S3_Deadline
 
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            Customers selectedCustomer = customerViewModel.SelectedCustomer;
+            selectedCustomer = customerViewModel.SelectedCustomer;
             string password = textBoxPassword.Text;
             foreach(Customers customer in customerViewModel.Customers)
             {
@@ -42,7 +44,7 @@ namespace S3_Deadline
                     selectedCustomer = customer;
                 }
             }
-            if(selectedCustomer.CustomerId == null)
+            if(selectedCustomer == null)
             {
                 MessageBox.Show("Forkert brugernavn! prøv igen");
             }
@@ -54,6 +56,10 @@ namespace S3_Deadline
             {
                 Visibility = Visibility.Hidden;
                 MainWindow mainWindow = new MainWindow();
+                IEnumerable<Orders> orders = selectedCustomer.Orders
+                    .OrderBy(orders => orders.RequiredDate)
+                    .Where(o => o.ShippedDate == null);
+                mainWindow.orderListBox.ItemsSource = orders;
                 mainWindow.Show();
             }
         }

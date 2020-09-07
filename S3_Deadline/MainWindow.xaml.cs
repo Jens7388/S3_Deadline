@@ -24,18 +24,18 @@ namespace S3_Deadline
     /// </summary>
     public partial class MainWindow: Window
     {
-        OrderViewModel orderViewModel;
+        CustomerViewModel customerViewModel;
         OrderRepository repo;
 
         public MainWindow()
         {
             InitializeComponent();
-            orderViewModel = DataContext as OrderViewModel;
+            customerViewModel = DataContext as CustomerViewModel;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            orderViewModel.Initialize();
+            customerViewModel.Initialize();
         }
     }
 }

@@ -9,7 +9,7 @@
         Title="MainWindow" Height="450" Width="800"
         Loaded="OnLoaded">
     <Window.DataContext>
-        <ViewModels:OrderViewModel />
+        <ViewModels:CustomerViewModel />
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -17,7 +17,6 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ListBox x:Name="orderListBox"
-                 ItemsSource="{Binding Orders}"
                  SelectedItem="{Binding SelectedOrder}"
                  Grid.Column="0"/>
     </Grid>
