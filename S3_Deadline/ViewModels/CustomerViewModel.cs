@@ -31,13 +31,18 @@ namespace S3_Deadline.ViewModels
         }
         public Orders SelectedOrder
         {
-            get => selectedOrder;
+            get
+            {
+                return selectedOrder;
+            }
+
             set
             {
                 selectedOrder = value;
                 OnPropertyChanged(nameof(SelectedOrder));
             }
         }
+
 
         public override void LoadAll()
         {

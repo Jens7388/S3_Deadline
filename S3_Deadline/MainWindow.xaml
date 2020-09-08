@@ -82,7 +82,7 @@
                      Grid.Row="4" />
 
             <TextBox x:Name="textBoxUnitsInStock"
-                     Text="{Binding SelectedOrder.OrderDetails.UnitsInStock}"
+                     Text="{Binding OrderDetails.TotalPrice}"
                      Grid.Column="1"
                      Grid.Row="5" />
         </Grid>

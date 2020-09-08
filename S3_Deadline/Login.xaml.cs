@@ -1,4 +1,6 @@
-﻿using Entities;
+﻿using DataAccess;
+
+using Entities;
 
 using S3_Deadline.ViewModels;
 
@@ -56,9 +58,21 @@ namespace S3_Deadline
             {
                 Visibility = Visibility.Hidden;
                 MainWindow mainWindow = new MainWindow();
+                OrderRepository orderRepository = new OrderRepository();
                 IEnumerable<Orders> orders = selectedCustomer.Orders
-                    .OrderBy(orders => orders.RequiredDate)
-                    .Where(o => o.ShippedDate == null);
+                    .OrderBy(o => o.RequiredDate)
+                    .Where(o => o.ShippedDate == null);              
+                /*IGNORER DETTE
+                foreach(Orders order in orders)
+                {
+                    foreach(Orders order2 in selectedCustomer.Orders)
+                    {
+                        if(order.OrderId != order2.OrderId)
+                        {
+                            orders.Add(order);
+                        };
+                    }
+                }*/
                 mainWindow.orderListBox.ItemsSource = orders;
                 mainWindow.Show();
             }
